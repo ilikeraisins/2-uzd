@@ -20,17 +20,6 @@ using std::left;
 using std::right;
 using std::list;
 using std::vector;
-/*
-struct studentas {
-    string vardas;
-    string pavarde;
-    vector<int>pazymiai;
-    //list<int> pazymiai;
-    int egzaminas;
-    double galutinis;
-    double galutinis_mediana;
-};
-*/
 
 class studentas {
 private:
@@ -40,13 +29,31 @@ private:
     int egzaminas;
     double galutinis;
     double galutinis_mediana;
+
+    double vidurkis() {
+        int suma = 0;
+        for (int sk : pazymiai) {
+            suma = suma + sk;
+        }
+        return (double)suma / pazymiai.size();
+    }
+
+    double mediana() {
+        std::sort(pazymiai.begin(), pazymiai.end());
+
+        size_t n = pazymiai.size();
+        if (n % 2 == 0) {
+            return (double)(pazymiai[(n - 1) / 2] + x[n / 2]) / 2.0;
+        }
+        return (double)pazymiai[n / 2];
+    }
 public:
-    studentas() : egzaminas(0) {};
+    studentas() : egzaminas(0), pavarde(""), vardas(""), galutinis(0.0), galutinis_mediana(0.0) {};
     // set
     void setVardas(string v) {
         vardas = v;
     }
-    void serPavarde(string p) {
+    void setPavarde(string p) {
         pavarde = p;
     }
     void setEgzaminas(int e) {
@@ -58,25 +65,8 @@ public:
     }
     // Galutinis su mediana ir vidurkiu
     void setGalutinis() {
-        if (pazymiai.size() == 0 or egzaminas == 0) {
-            cout << "Neįvesti pazymiai arba egzaminas" << endl;
-        }
-        // Su vidurkiu
-        int suma = 0;
-        for (int sk : pazymiai) {
-            suma = suma + sk;
-        }
-        galutinis = (double)suma / pazymiai.size();
-
-        //Su mediana
-        std::sort(pazymiai.begin(), pazymiai.end());
-        size_t n = pazymiai.size();
-        if (n % 2 == 0) {
-            galutinis_mediana = (double)(pazymiai[(n - 1) / 2] + x[n / 2]) / 2.0;
-        }
-        else {
-            galutinis_mediana = (double) pazymiai[n / 2];
-        }
+        galutinis = (vidurkis() * 0.4 + double(egzaminas) * 0.6);
+        galutinis_mediana = (mediana() * 0.4 + double(egzaminas) * 0.6);
     }
     // Get
     string getVardas() {
@@ -91,22 +81,17 @@ public:
     double getGalutinisMediana() {
         return galutinis_mediana;
     }
-    
 };
 
 
-double mediana(vector<int> /*list<int>*/);
-double vidurkis(/*list<int>*/ vector<int>);
-
-void lentele(vector<studentas> /*list<studentas>*/, string);
-double galutinio_sk(double, int);
+void lentele(vector<studentas>, string);
 void generuoti_failus(int, int, string);
-void rasymas_i_faila(vector<studentas> /*list<studentas>*/, string);
+void rasymas_i_faila(vector<studentas>, string);
 
-bool palyginti(studentas, studentas);
-bool palyginti_vardas(studentas, studentas);
-bool palyginti_pavarde(studentas, studentas);
-bool palyginti_galutinis(studentas, studentas);
+bool palyginti(const studentas&, const studentas&);
+bool palyginti_vardas(const studentas&, const studentas&);
+bool palyginti_pavarde(const studentas&, const studentas&);
+bool palyginti_galutinis(const studentas&, const studentas&);
 
 std::stringstream failo_skaitimas(string);
 studentas studentas_uzpildimas(string);
