@@ -56,16 +56,27 @@ public:
     void setPazymiai(vector<int> paz) {
         pazymiai = paz;
     }
-    void addPazymia(int pazymis) {
-        pazymiai.push_back(pazymis);
-    }
     // Galutinis su mediana ir vidurkiu
     void setGalutinis() {
         if (pazymiai.size() == 0 or egzaminas == 0) {
             cout << "Neįvesti pazymiai arba egzaminas" << endl;
         }
+        // Su vidurkiu
+        int suma = 0;
+        for (int sk : pazymiai) {
+            suma = suma + sk;
+        }
+        galutinis = (double)suma / pazymiai.size();
 
-
+        //Su mediana
+        std::sort(pazymiai.begin(), pazymiai.end());
+        size_t n = pazymiai.size();
+        if (n % 2 == 0) {
+            galutinis_mediana = (double)(pazymiai[(n - 1) / 2] + x[n / 2]) / 2.0;
+        }
+        else {
+            galutinis_mediana = (double) pazymiai[n / 2];
+        }
     }
     // Get
     string getVardas() {
@@ -73,6 +84,12 @@ public:
     }
     string getPavarde() {
         return pavarde;
+    }
+    double getGalutinisVidurkis() {
+        return galutinis;
+    }
+    double getGalutinisMediana() {
+        return galutinis_mediana;
     }
     
 };
