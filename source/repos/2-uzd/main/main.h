@@ -88,10 +88,10 @@ void lentele(vector<studentas>, string);
 void generuoti_failus(int, int, string);
 void rasymas_i_faila(vector<studentas>, string);
 
-bool palyginti(const studentas&, const studentas&);
-bool palyginti_vardas(const studentas&, const studentas&);
-bool palyginti_pavarde(const studentas&, const studentas&);
-bool palyginti_galutinis(const studentas&, const studentas&);
+bool palyginti(studentas, studentas);
+bool palyginti_vardas(studentas, studentas);
+bool palyginti_pavarde(studentas, studentas);
+bool palyginti_galutinis(studentas, studentas);
 
 std::stringstream failo_skaitimas(string);
 studentas studentas_uzpildimas(string);

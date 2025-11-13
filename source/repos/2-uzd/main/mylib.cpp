@@ -35,34 +35,34 @@ std::stringstream failo_skaitimas(string failo_vardas) {
     return buffer;
 }
 
-void rasymas_i_faila(vector<studentas>x /*list<studentas> x*/, string failo_vardas) {
+void rasymas_i_faila(vector<studentas>x , string failo_vardas) {
     string visas;
     string galut_v;
     string galut_m;
     for (studentas laik : x) {
-        galut_v = std::to_string(laik.galutinis).substr(0, 4);
-        galut_m = std::to_string(laik.galutinis_mediana).substr(0, 4);
-        visas += laik.vardas + " " + laik.pavarde + " " + galut_v + " " + galut_m + "\n";
+        galut_v = std::to_string(laik.getGalutinisVidurkis()).substr(0, 4);
+        galut_m = std::to_string(laik.getGalutinisMediana()).substr(0, 4);
+        visas += laik.getVardas() + " " + laik.getPavarde() + " " + galut_v + " " + galut_m + "\n";
     }
     std::ofstream out_f(failo_vardas);
     out_f << visas;
     out_f.close();
 }
 
-void lentele(vector<studentas> x /*list<studentas> x*/, string y) {
-    //x.sort(palyginti);
-std:sort(x.begin(), x.end(), palyginti);
+void lentele(vector<studentas> x, string y) {
+ 
+    std:sort(x.begin(), x.end(), palyginti);
     cout << setw(15) << left << "Vardas" << setw(15) << left << "Pavarde" << setw(15) << right;
     if (y == "V") {
         cout << "Galutinis pazymis(Vid.)" << setw(40) << right << "Objekto saugojimo atmintyje adresas" << endl;
         for (studentas laik : x) {
-            cout << setw(15) << left << laik.vardas << setw(15) << left << laik.pavarde << setw(17) << right << laik.galutinis << setw(44) << right << &laik << endl;
+            cout << setw(15) << left << laik.getVardas() << setw(15) << left << laik.getPavarde() << setw(17) << right << laik.getGalutinisVidurkis() << setw(44) << right << &laik << endl;
         }
     }
     else if (y == "M") {
         cout << "Galutinis pazymis(Median.)" << setw(40) << right << "Objekto saugojimo atmintyje adresas" << endl;
         for (studentas laik : x) {
-            cout << setw(15) << left << laik.vardas << setw(15) << left << laik.pavarde << setw(17) << right << laik.galutinis_mediana << setw(44) << right << &laik << endl;
+            cout << setw(15) << left << laik.getVardas() << setw(15) << left << laik.getPavarde() << setw(17) << right << laik.getGalutinisMediana() << setw(44) << right << &laik << endl;
         }
     }
     else if (y == "A") {
@@ -72,7 +72,7 @@ std:sort(x.begin(), x.end(), palyginti);
         }
         cout << endl;
         for (studentas laik : x) {
-            cout << setw(15) << left << laik.vardas << setw(15) << left << laik.pavarde << setw(24) << left << laik.galutinis << left << laik.galutinis_mediana << setw(44) << right << &laik << endl;
+            cout << setw(15) << left << laik.getVardas() << setw(15) << left << laik.getPavarde() << setw(24) << left << laik.getGalutinisVidurkis() << left << laik.getGalutinisMediana() << setw(44) << right << &laik << endl;
         }
     }
 }
@@ -99,21 +99,21 @@ void generuoti_failus(int studentu_sk, int darbu_sk, string failo_vardas) {
 }
 
 
-bool palyginti(const studentas& a, const studentas& b) {
-    if (a.vardas != b.vardas) {
-        return a.vardas > b.vardas;
+bool palyginti(studentas a,studentas b) {
+    if (a.getVardas() != b.getVardas()) {
+        return a.getVardas() > b.getVardas();
     }
-    return a.galutinis > b.galutinis;
+    return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
 }
 
-bool palyginti_vardas(const studentas& a, const studentas& b) {
-    return a.vardas > b.vardas;
+bool palyginti_vardas(studentas a, studentas b) {
+    return a.getVardas() > b.getVardas();
 }
 
-bool palyginti_pavarde(const studentas& a, const studentas& b) {
-    return a.pavarde > b.pavarde;
+bool palyginti_pavarde(studentas a, studentas b) {
+    return a.getPavarde() > b.getPavarde();
 }
 
-bool palyginti_galutinis(const studentas& a, const studentas& b) {
-    return a.galutinis > b.galutinis;
+bool palyginti_galutinis(studentas a, studentas b) {
+    return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
 }
