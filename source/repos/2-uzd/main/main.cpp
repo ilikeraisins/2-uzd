@@ -20,7 +20,7 @@ int main() {
             string eil;
 
             timer t;
-            std::stringstream buffer = failo_skaitimas("1000studentai.txt");
+            std::stringstream buffer = failo_skaitimas("100000studentai.txt");
             cout << "Failo nuskaitymas: " << t.elapsed() << endl;
 
             std::getline(buffer, eil);
@@ -172,10 +172,10 @@ int main() {
         }
     }
     else {
-        generuoti_failus(1000, 5, "C1000studentai.txt");
-        generuoti_failus(10000, 5, "10000studentai.txt");
+        //generuoti_failus(1000, 5, "1000studentai.txt");
+        //generuoti_failus(10000, 5, "10000studentai.txt");
         generuoti_failus(100000, 5, "100000studentai.txt");
         generuoti_failus(1000000, 5, "1000000studentai.txt");
-        generuoti_failus(10000000, 5, "10000000studentai.txt");
+        //generuoti_failus(10000000, 5, "10000000studentai.txt");
     }
 }
