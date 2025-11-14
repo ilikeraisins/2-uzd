@@ -35,36 +35,6 @@ int main() {
                 else break;
             };
 
-            //1 strategija
-
-            /*list<studentas> geri;
-            list<studentas> blogi;
-            vector<studentas> geri;
-            vector<studentas> blogi;
-
-            copy_if(grupe.begin(), grupe.end(), blogi.begin(), [](studentas x) {return x.galutinis < 5.0; });
-            copy_if(grupe.begin(), grupe.end(), geri.begin(), [](studentas x) {return x.galutinis >= 5; });
-            */
-
-            //2 strategija
-
-            /*list<studentas> blogi;
-            vector<studentas> blogi;
-
-            //grupe.sort(palyginti_galutinis);
-            std::sort(grupe.begin(), grupe.end(), palyginti_galutinis);
-
-            int k = 0;
-            for (studentas h : grupe) {
-                if (h.galutinis < 5.0) {
-                    blogi.push_back(h);
-                    k++;
-                }
-            }
-            grupe.resize(grupe.size() - k);*/
-
-            //3 strategija
-
             int dydis = grupe.size();
             vector<studentas> blogi(dydis);
             copy_if(grupe.begin(), grupe.end(), blogi.begin(), [](studentas x) {return x.getGalutinisVidurkis() < 5.0; });
