@@ -72,29 +72,17 @@ int main() {
             blogi.resize(dydis - grupe.size());
 
             if (pasirinkimas == "V") {
-                //blogi.sort(palyginti_vardas);
-                //grupe.sort(palyginti_vardas);
-                //geri.sort(palyginti_vardas);
                 std::sort(blogi.begin(), blogi.end(), palyginti_vardas);
                 std::sort(grupe.begin(), grupe.end(), palyginti_vardas);
-                //std::sort(geri.begin(), geri.end(), palyginti_vardas);
             }
             else if (pasirinkimas == "P") {
-                //blogi.sort(palyginti_pavarde);
-                //grupe.sort(palyginti_pavarde);
-                //geri.sort(palyginti_pavarde);
                 std::sort(blogi.begin(), blogi.end(), palyginti_pavarde);
                 std::sort(grupe.begin(), grupe.end(), palyginti_pavarde);
-                //std::sort(geri.begin(), geri.end(), palyginti_pavarde);
 
             }
             else if (pasirinkimas == "G") {
-                //blogi.sort(palyginti_galutinis);
-                //grupe.sort(palyginti_galutinis);
-                //geri.sort(palyginti_galutinis);
                 std::sort(blogi.begin(), blogi.end(), palyginti_galutinis);
                 std::sort(grupe.begin(), grupe.end(), palyginti_galutinis);
-                //std::sort(geri.begin(), geri.end(), palyginti_galutinis);
             }
 
 
