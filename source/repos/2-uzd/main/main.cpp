@@ -1,5 +1,5 @@
 ﻿#include "main.h"
-#include "mylib.cpp"
+
 
 int main() {
     string pasirinkimas;
