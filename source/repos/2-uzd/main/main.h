@@ -18,14 +18,13 @@ using std::string;
 using std::setw;
 using std::left;
 using std::right;
-using std::list;
 using std::vector;
 
 class studentas {
 private:
     string vardas;
     string pavarde;
-    vector<int>pazymiai;
+    vector<int> pazymiai;
     int egzaminas;
     double galutinis;
     double galutinis_mediana;
@@ -43,7 +42,7 @@ private:
 
         size_t n = pazymiai.size();
         if (n % 2 == 0) {
-            return (double)(pazymiai[(n - 1) / 2] + x[n / 2]) / 2.0;
+            return (double)(pazymiai[(n - 1) / 2] + pazymiai[n / 2]) / 2.0;
         }
         return (double)pazymiai[n / 2];
     }
@@ -65,8 +64,8 @@ public:
     }
     // Galutinis su mediana ir vidurkiu
     void setGalutinis() {
-        galutinis = (vidurkis() * 0.4 + double(egzaminas) * 0.6);
-        galutinis_mediana = (mediana() * 0.4 + double(egzaminas) * 0.6);
+        galutinis = round((vidurkis() * 0.4 + double(egzaminas) * 0.6) * 100) / 100;
+        galutinis_mediana = round((mediana() * 0.4 + double(egzaminas) * 0.6) * 100) / 100;
     }
     // Get
     string getVardas() {
@@ -81,6 +80,8 @@ public:
     double getGalutinisMediana() {
         return galutinis_mediana;
     }
+    // Destructor
+    ~studentas() {};
 };
 
 
