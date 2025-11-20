@@ -80,6 +80,12 @@ public:
     double getGalutinisMediana() {
         return galutinis_mediana;
     }
+    int getEgzaminas() {
+        return egzaminas;
+    }
+    int getPazymins(int i) {
+        return pazymiai[i];
+    }
     // Destructor
     ~studentas() {};
 
@@ -104,6 +110,7 @@ public:
         for (int i = 0; i != stud.pazymiai.size(); i++)
             paz[i] = stud.pazymiai[i];
         pazymiai = paz;
+
         return *this;
     }
 
@@ -115,11 +122,15 @@ public:
     //Įvedimo operatorius
     friend std::istream& operator>>(std::istream& in, studentas& stud) {
         in >> stud.vardas >> stud.pavarde;
-        while (in) {
-            int paz;
+        string paz;
+        while (paz != "0") {
             in >> paz;
-            stud.pazymiai.push_back(paz);
+            stud.pazymiai.push_back(stoi(paz));
         }
+        stud.pazymiai.pop_back();
+        stud.egzaminas = stud.pazymiai.back();
+        stud.pazymiai.pop_back();
+        stud.setGalutinis();
         return in;
     }
 };
