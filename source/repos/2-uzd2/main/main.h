@@ -85,10 +85,26 @@ public:
 
     // Copy constructor
     studentas(const studentas& stud)
-        : vardas{ stud.vardas }, pavarde{ stud.pavarde }, egzaminas{ stud.egzaminas }, galutinis{ stud.galutinis }, galutinis_mediana{ stud.galutinis_mediana }
+        : vardas{ stud.vardas }, pavarde{ stud.pavarde }, egzaminas{stud.egzaminas}, galutinis{stud.galutinis}, galutinis_mediana{stud.galutinis_mediana}
     {
         for (int i = 0; i != stud.pazymiai.size(); i++)
             pazymiai[i] = stud.pazymiai[i];
+    }
+    //Priskyrimo operatorius
+    studentas& operator=(const studentas& stud) {
+        if (&stud == this) return *this;
+
+        vardas = stud.vardas;
+        pavarde = stud.pavarde;
+        egzaminas = stud.egzaminas;
+        galutinis = stud.galutinis;
+        galutinis_mediana = stud.galutinis_mediana;
+        
+        vector<int> paz(stud.pazymiai.size());
+        for (int i = 0; i != stud.pazymiai.size(); i++)
+            paz[i] = stud.pazymiai[i];
+        pazymiai = paz;
+        return *this;
     }
 };
 
