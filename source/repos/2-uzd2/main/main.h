@@ -106,6 +106,12 @@ public:
         pazymiai = paz;
         return *this;
     }
+
+    //Spausdinimo operatorius
+    friend std::ostream& operator<<(std::ostream& out, const studentas& stud) {
+        out << stud.vardas << " " << stud.pavarde << " " << stud.galutinis << " " << stud.galutinis_mediana << endl;
+        return out;
+    }
 };
 
 
