@@ -112,6 +112,16 @@ public:
         out << stud.vardas << " " << stud.pavarde << " " << stud.galutinis << " " << stud.galutinis_mediana << endl;
         return out;
     }
+    //Įvedimo operatorius
+    friend std::istream& operator>>(std::istream& in, studentas& stud) {
+        in >> stud.vardas >> stud.pavarde;
+        while (in) {
+            int paz;
+            in >> paz;
+            stud.pazymiai.push_back(paz);
+        }
+        return in;
+    }
 };
 
 
