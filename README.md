@@ -16,7 +16,11 @@ Releasai:
 
 5\. v0.3 - testuotas ir README.md faile aprašytas programos veikimas naudojant std::vector ir std::list konteinerius;
 
-6\. v1.0 - testuotas ir README.md faile aprašytas programos veikimas pagal 3 studentų suskirstymo į dvi grupes strategijas.
+6\. v1.0 - testuotas ir README.md faile aprašytas programos veikimas pagal 3 studentų suskirstymo į dvi grupes strategijas;
+
+7\. v1.1 - struktūra studentas pakeista klase studentas, programa perdaryta atitinkamai;
+
+8\. v1.2 - klasei strudentas pritaikyta atitikti ,,Rule of three", pridėti išvesties ir įvesties operatoriai.
 
 
 
@@ -57,7 +61,6 @@ Diegimo ir paleidimo instrukcija:
 
 
 Naudojimo instrukcija:
-
 
 
 1\. Paleisti programa;
@@ -114,7 +117,9 @@ Naudojimo instrukcija:
 
 &nbsp;	2) įvedus G pasirenkama generuoti failus su duomenimis;
 
-&nbsp;		3. Sugeneruojami failai su 1000, 10000, 100000, 1000000 ir 10000000 studentų duomenimis.
+&nbsp;		3. Sugeneruojami failai su 1000, 10000, 100000, 1000000 ir 10000000 studentų duomenimis;
+
+&nbsp;	3) įvedus D pasirenkama bandyti klasės studentas įvedimo, išvedimo ir priskirimo operatoriu.
 
 
 
@@ -499,6 +504,18 @@ Optimizacijos flag'ų palyginimas:
 | Class         | 252 KB                  | 252 KB                                  | 252 KB                          |
 
 |---------------|-------------------------|-----------------------------------------|---------------------------------|
+
+Perdengti metodai:
+
+&nbsp;	1) Operatoriai:
+
+&nbsp;	    1. << - naudonat cout leidžia išvesti studento objekto vardą, pavardę ir galutinius pažymius į ekraną, o naudojant std:: ofstream, į failą.
+
+&nbsp;	    2. >> naudojant cin leidžia įvesti objekto studento vardą, pavardę, pažymius (paskutinis pažymis - egzaminas) ranka, o naudojant std::stringstream iš failo;
+
+&nbsp;	    3. = vieno objekto atributai tampa priskiriamo objekto atributais.
+
+
 
 
 
