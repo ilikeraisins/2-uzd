@@ -3,7 +3,7 @@
 
 int main() {
     string pasirinkimas;
-    cout << "Duomenis skaityti, generuoti ar demonstruoti ,,Rule of three\"? (S/G/D)" << endl;
+    cout << "Duomenis skaityti, generuoti ar demonstruoti v1.2 ir v1.5? (S/G/D)" << endl;
     cin >> pasirinkimas;
 
     if (pasirinkimas == "S") {
@@ -140,6 +140,9 @@ int main() {
         kopija = orginalas;
 
         cout << "Kopija: " << kopija;
+
+        
+        //zmogus zmog("jonas","Petraitis");
         }
     else {
         //generuoti_failus(1000, 5, "1000studentai.txt");
