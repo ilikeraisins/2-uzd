@@ -30,17 +30,12 @@ public:
     virtual string getPavarde() const = 0;
 };
 
-
-
-class studentas {
+class studentas : public zmogus{
 private:
-    string vardas;
-    string pavarde;
     vector<int> pazymiai;
     int egzaminas;
     double galutinis;
     double galutinis_mediana;
-
     double vidurkis() {
         int suma = 0;
         for (int sk : pazymiai) {
@@ -48,7 +43,6 @@ private:
         }
         return (double)suma / pazymiai.size();
     }
-
     double mediana() {
         std::sort(pazymiai.begin(), pazymiai.end());
 
@@ -59,7 +53,7 @@ private:
         return (double)pazymiai[n / 2];
     }
 public:
-    studentas() : egzaminas(0), pavarde(""), vardas(""), galutinis(0.0), galutinis_mediana(0.0) {};
+    studentas() : zmogus("",""), egzaminas(0), galutinis(0.0), galutinis_mediana(0.0) {};
     // set
     void setVardas(string v) {
         vardas = v;
@@ -80,30 +74,24 @@ public:
         galutinis_mediana = round((mediana() * 0.4 + double(egzaminas) * 0.6) * 100) / 100;
     }
     // Get
-    string getVardas() {
+    string getVardas() const {
         return vardas;
     }
-    string getPavarde() {
+    string getPavarde() const{
         return pavarde;
     }
-    double getGalutinisVidurkis() {
+    double getGalutinisVidurkis() const{
         return galutinis;
     }
-    double getGalutinisMediana() {
+    double getGalutinisMediana() const{
         return galutinis_mediana;
-    }
-    int getEgzaminas() {
-        return egzaminas;
-    }
-    int getPazymins(int i) {
-        return pazymiai[i];
     }
     // Destructor
     ~studentas() {};
 
     // Copy constructor
     studentas(const studentas& stud)
-        : vardas{ stud.vardas }, pavarde{ stud.pavarde }, egzaminas{stud.egzaminas}, galutinis{stud.galutinis}, galutinis_mediana{stud.galutinis_mediana}
+        : zmogus{stud.vardas,stud.pavarde}, egzaminas{stud.egzaminas}, galutinis{stud.galutinis}, galutinis_mediana{stud.galutinis_mediana}
     {
         for (int i = 0; i != stud.pazymiai.size(); i++)
             pazymiai[i] = stud.pazymiai[i];
