@@ -22,7 +22,7 @@ Releasai:
 
 8\. v1.2 - klasei strudentas pritaikyta atitikti ,,Rule of three", pridėti išvesties ir įvesties operatoriai.
 
-
+9\. v.5 - pridėta abstrakti klasė zmogus, kurios išvestine klase tampa klasė studentas.
 
 
 
