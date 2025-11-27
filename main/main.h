@@ -20,6 +20,18 @@ using std::left;
 using std::right;
 using std::vector;
 
+class zmogus {
+protected:
+    string vardas;
+    string pavarde;
+public:
+    zmogus(string v, string p) : vardas{ v }, pavarde{ p } {}
+    virtual string getVardas() const = 0;
+    virtual string getPavarde() const = 0;
+};
+
+
+
 class studentas {
 private:
     string vardas;
