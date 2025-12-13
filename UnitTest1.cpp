@@ -10,7 +10,7 @@ namespace UnitTest1
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(SetGet)
 		{
 			studentas laikinas;
 			laikinas.setVardas("Vardas");
@@ -18,7 +18,7 @@ namespace UnitTest1
 			Assert::AreEqual(laikinas.getVardas(), x);
 		}
 
-		TEST_METHOD(TestMethod2) {
+		TEST_METHOD(PriskyrimosOperatorius) {
 			studentas laikinas;
 			laikinas.setVardas("Vardas");
 			studentas laikinas2;
@@ -26,6 +26,17 @@ namespace UnitTest1
 			laikinas = laikinas2;
 			std::string x = "Naujas";
 			Assert::AreEqual(laikinas.getVardas(), x);
+		}
+
+		TEST_METHOD(DefaultValuesVardas) {
+			studentas laikinas;
+			std::string x = "";
+			Assert::AreEqual(laikinas.getVardas(), x);
+		}
+
+		TEST_METHOD(DefaultValuesGalutinis) {
+			studentas laikinas;
+			Assert::AreEqual(laikinas.getGalutinisVidurkis(), 0.0);
 		}
 	};
 }
