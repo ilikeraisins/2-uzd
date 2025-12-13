@@ -22,7 +22,9 @@ Releasai:
 
 8\. v1.2 - klasei strudentas pritaikyta atitikti ,,Rule of three", pridėti išvesties ir įvesties operatoriai.
 
-9\. v.5 - pridėta abstrakti klasė zmogus, kurios išvestine klase tampa klasė studentas.
+9\. v1.5 - pridėta abstrakti klasė zmogus, kurios išvestine klase tampa klasė studentas.
+
+10\. v2.0 - pridėta dokumentacija, sukurta naudojant ,,Doxygen", žiūrėti ,,html" aplanką, ir failas ,,UnitTest1.cpp".
 
 
 
